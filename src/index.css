@@ -20,8 +20,8 @@
   --gold: #d97706;
   --text: #0f172a;
   --text-secondary: #334155;
-  --text-muted: #64748b;
-  --text-dim: #94a3b8;
+  --text-muted: #475569;
+  --text-dim: #64748b;
   --border: #e2e8f0;
   --border-accent: rgba(79,70,229,0.15);
 }
@@ -147,6 +147,7 @@
     filter: blur(80px);
     opacity: 0.15;
     pointer-events: none;
+    will-change: transform;
   }
 
   /* Gradient border */

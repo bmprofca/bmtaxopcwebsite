@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { business } from "../../data/business";
+
 
 const navLinks = [
   { to: "/", label: "Home" },

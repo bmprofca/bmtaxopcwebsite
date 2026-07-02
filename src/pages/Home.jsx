@@ -35,10 +35,10 @@ const fadeUp = {
 
 // Free-to-use images (Unsplash License — free for commercial & personal use, no permission needed, no attribution required)
 const IMAGES = {
-  hero: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80", // Scott Graham — paperwork/laptop meeting
-  about: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=900&q=80", // calculator and money
-  cta: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80", // team brainstorming
-  services: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80", // team collaborating at desk
+  hero: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format,compress&fit=crop&w=800&q=75", // Scott Graham — paperwork/laptop meeting
+  about: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format,compress&fit=crop&w=800&q=75", // calculator and money
+  cta: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format,compress&fit=crop&w=800&q=75", // team brainstorming
+  services: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format,compress&fit=crop&w=600&q=75", // team collaborating at desk
 };
 
 export default function Home() {
@@ -74,7 +74,7 @@ export default function Home() {
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.3 }} className="mt-6 flex flex-wrap gap-3 sm:mt-9 sm:gap-4">
               <Link to="/contact" className="btn-primary hover:scale-[1.03] active:scale-[0.98]">
                 Get started free
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
               </Link>
               <Link to="/services" className="btn-outline hover:scale-[1.02]">Explore services</Link>
             </motion.div>
@@ -94,6 +94,7 @@ export default function Home() {
                   alt="Tax documents and financial paperwork on a desk"
                   className="h-[420px] w-full object-cover"
                   loading="eager"
+                  fetchPriority="high"
                 />
               </div>
 
@@ -214,7 +215,7 @@ export default function Home() {
             </h2>
             <p className="mt-5 max-w-md text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>Talk to our team about GST, ITR, audits or registration — we'll take it from there.</p>
             <div className="mt-6 flex flex-wrap gap-4">
-              <Link to="/contact" className="btn-primary hover:scale-[1.04]">Contact BMTAX <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg></Link>
+              <Link to="/contact" className="btn-primary hover:scale-[1.04]">Contact BMTAX <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg></Link>
               <a href={business.phoneHref} className="btn-outline">📞 Call Now</a>
             </div>
           </motion.div>
