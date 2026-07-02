@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { business } from "../../data/business";
 
 const navLinks = [
+  { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
   { to: "/why-bmtax", label: "Why BMTAX" },
