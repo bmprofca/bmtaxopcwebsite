@@ -114,13 +114,7 @@ export default function Home() {
                   <span className="text-xs font-semibold" style={{ color: "#059669" }}>GST Filing Active</span>
                 </div>
               </motion.div>
-              <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute top-1/2 -left-8 rounded-2xl px-4 py-3" style={{ background: "var(--accent-bg)", border: "1px solid rgba(79,70,229,0.12)", boxShadow: "0 4px 16px rgba(0,0,0,0.06)" }}>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm">⚡</span>
-                  <span className="text-xs font-semibold" style={{ color: "var(--accent)" }}>ITR Filed in 24h</span>
-                </div>
-              </motion.div>
+              
             </div>
           </motion.div>
         </Container>
