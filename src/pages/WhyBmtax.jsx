@@ -44,7 +44,7 @@ export default function WhyBmtax() {
         </Container>
       </section>
 
-      <section className="py-14" style={{ backgroundColor: "var(--bg)" }}>
+      <section className="py-10 sm:py-14" style={{ backgroundColor: "var(--bg)" }}>
         <Container>
           <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.55 }} className="max-w-3xl text-base leading-loose" style={{ color: "var(--text-muted)" }}>
             Whether you're an individual, a startup, or a growing business, we provide reliable and cost-effective solutions that save your time, ensure accuracy, and keep you fully compliant with all legal requirements. With a team of experienced professionals and a commitment to quality, BMTAX simplifies complex processes like GST, Income Tax, audits and financial reporting — so you can focus on what you do best: growing your business.
@@ -53,11 +53,11 @@ export default function WhyBmtax() {
       </section>
 
       <div style={{ background: "linear-gradient(135deg, rgba(79,70,229,0.05) 0%, rgba(5,150,105,0.03) 100%)", borderTop: "1px solid rgba(79,70,229,0.1)", borderBottom: "1px solid rgba(79,70,229,0.1)" }}>
-        <Container className="py-10">
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
+        <Container className="py-8 sm:py-10">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6">
             {stats.map((s, i) => (
               <motion.div key={s.label} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.4 }} className="text-center">
-                <div className="text-3xl font-extrabold" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--accent)" }}>{s.number}</div>
+                <div className="text-2xl font-extrabold sm:text-3xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--accent)" }}>{s.number}</div>
                 <div className="mt-1 text-xs font-medium" style={{ color: "var(--text-dim)" }}>{s.label}</div>
               </motion.div>
             ))}
@@ -65,19 +65,19 @@ export default function WhyBmtax() {
         </Container>
       </div>
 
-      <section className="py-20" style={{ backgroundColor: "var(--surface)" }}>
+      <section className="py-14 sm:py-20" style={{ backgroundColor: "var(--surface)" }}>
         <Container>
-          <div className="mb-10">
+          <div className="mb-8 sm:mb-10">
             <span className="eyebrow">Our Advantages</span>
-            <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text)" }}>6 reasons to choose us</h2>
+            <h2 className="mt-2 text-2xl font-extrabold sm:text-4xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text)" }}>6 reasons to choose us</h2>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
             {reasons.map((reason, i) => {
               const cfg = colorConfig[reason.color];
               return (
                 <motion.div key={reason.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: (i % 2) * 0.1, duration: 0.5 }}
-                  className="group relative overflow-hidden rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover"
+                  className="group relative overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover sm:p-7"
                   style={{ background: cfg.bg, border: `1px solid ${cfg.border}` }}>
                   <div className="relative z-10">
                     <div className="flex items-start gap-4">

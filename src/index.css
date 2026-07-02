@@ -68,12 +68,12 @@
 @layer components {
 
   .container-page {
-    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
   }
 
   /* Eyebrow pill badge */
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.12em];
+    @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] sm:px-3.5 sm:text-xs sm:tracking-[0.12em];
     background: var(--accent-bg);
     color: var(--accent);
     border: 1px solid rgba(79,70,229,0.12);
@@ -84,7 +84,7 @@
   .glass-card {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 12px;
     box-shadow: 0 2px 15px rgba(0,0,0,0.04);
   }
 
@@ -105,7 +105,7 @@
 
   /* Buttons */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold text-sm transition-all duration-300;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 sm:px-6 sm:py-3;
     background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
     color: #fff;
     box-shadow: 0 4px 14px rgba(79,70,229,0.25);
@@ -117,7 +117,7 @@
   .btn-primary:active { transform: translateY(0); }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold text-sm transition-all duration-300;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 sm:px-6 sm:py-3;
     border: 1px solid var(--border);
     color: var(--text-secondary);
     background: var(--surface);
@@ -130,7 +130,7 @@
   }
 
   .btn-emerald {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold text-sm transition-all duration-300;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 sm:px-6 sm:py-3;
     background: linear-gradient(135deg, #059669 0%, #10b981 100%);
     color: #fff;
     box-shadow: 0 4px 14px rgba(5,150,105,0.25);
@@ -239,13 +239,13 @@
 
   /* Stat card */
   .stat-card {
-    @apply flex flex-col items-center justify-center rounded-2xl p-5 text-center;
+    @apply flex flex-col items-center justify-center rounded-xl p-4 text-center sm:rounded-2xl sm:p-5;
     background: var(--surface);
     border: 1px solid var(--border);
     box-shadow: 0 2px 12px rgba(0,0,0,0.04);
   }
   .stat-number {
-    @apply text-3xl font-bold;
+    @apply text-2xl font-bold sm:text-3xl;
     font-family: 'Plus Jakarta Sans', sans-serif;
     color: var(--accent);
   }
@@ -271,8 +271,15 @@
   .page-hero {
     position: relative;
     overflow: hidden;
-    padding: 5rem 0;
+    padding: 3rem 0;
     background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 40%, #e0e7ff 100%);
+  }
+  .page-hero h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+    line-height: 1.12;
+  }
+  .page-hero p {
+    font-size: 0.9375rem;
   }
   .page-hero::after {
     content: '';
@@ -299,6 +306,18 @@
   .legal-prose ul {
     @apply ml-5 list-disc space-y-1 text-sm leading-relaxed;
     color: var(--text-muted);
+  }
+}
+
+@media (min-width: 640px) {
+  .page-hero {
+    padding: 4rem 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-hero {
+    padding: 5rem 0;
   }
 }
 

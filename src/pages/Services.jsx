@@ -24,7 +24,7 @@ export default function Services() {
             <span className="eyebrow">What We Do</span>
             <h1 className="mt-2 max-w-2xl text-4xl font-extrabold leading-tight sm:text-5xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text)" }}>Every filing, registration &amp; report — <span className="gradient-text">handled.</span></h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>Nine core services covering the full lifecycle of tax and financial compliance for individuals, startups and businesses.</p>
-            <div className="mt-8 flex flex-wrap gap-6">
+            <div className="mt-6 flex flex-wrap gap-5 sm:mt-8 sm:gap-6">
               {[{ n: "9", l: "Services" }, { n: "500+", l: "Clients" }, { n: "100%", l: "Compliant" }].map((s) => (
                 <div key={s.l}>
                   <div className="text-2xl font-extrabold" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--accent)" }}>{s.n}</div>
@@ -36,9 +36,9 @@ export default function Services() {
         </Container>
       </section>
 
-      <section className="py-20" style={{ backgroundColor: "var(--bg)" }}>
+      <section className="py-14 sm:py-20" style={{ backgroundColor: "var(--bg)" }}>
         <Container>
-          <div className="mb-10 flex flex-wrap gap-2">
+          <div className="mb-8 flex flex-wrap gap-2 sm:mb-10">
             {categories.map((cat) => (
               <button key={cat.id} onClick={() => setActiveCategory(cat.id)} className="rounded-xl px-4 py-2 text-xs font-semibold transition-all duration-200"
                 style={activeCategory === cat.id ? { background: "var(--accent-bg)", border: "1px solid rgba(79,70,229,0.2)", color: "var(--accent)" } : { background: "var(--surface)", border: "1px solid var(--border)", color: "var(--text-muted)" }}>
@@ -46,7 +46,7 @@ export default function Services() {
               </button>
             ))}
           </div>
-          <motion.div key={activeCategory} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }} className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <motion.div key={activeCategory} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }} className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
             {filtered.length > 0 ? filtered.map((service, i) => (<ServiceCard key={service.slug} service={service} index={i} />)) : <div className="col-span-3 py-20 text-center" style={{ color: "var(--text-dim)" }}>No services in this category.</div>}
           </motion.div>
         </Container>

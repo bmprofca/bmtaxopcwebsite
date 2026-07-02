@@ -60,13 +60,13 @@ export default function Contact() {
         </Container>
       </section>
 
-      <section className="py-20" style={{ backgroundColor: "var(--bg)" }}>
-        <Container className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="space-y-6">
+      <section className="py-14 sm:py-20" style={{ backgroundColor: "var(--bg)" }}>
+        <Container className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10">
+          <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="space-y-5 sm:space-y-6">
             <h2 className="text-xl font-bold" style={{ color: "var(--text)" }}>Contact Information</h2>
             <div className="space-y-4">
               {contactItems.map((item) => (
-                <div key={item.label} className="flex items-start gap-4 rounded-2xl p-5" style={{ background: "var(--surface)", border: "1px solid var(--border)", boxShadow: "0 2px 10px rgba(0,0,0,0.02)" }}>
+                <div key={item.label} className="flex items-start gap-3 rounded-2xl p-4 sm:gap-4 sm:p-5" style={{ background: "var(--surface)", border: "1px solid var(--border)", boxShadow: "0 2px 10px rgba(0,0,0,0.02)" }}>
                   <div className={colorConfig[item.color].iconClass}>{item.icon}</div>
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: "var(--text-dim)" }}>{item.label}</p>
@@ -82,17 +82,17 @@ export default function Contact() {
             <div className="overflow-hidden rounded-2xl" style={{ border: "1px solid var(--border)" }}>
               <iframe title="BMTAX office location map" src={business.mapEmbed} className="h-56 w-full" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
             </div>
-            <div className="rounded-2xl p-5" style={{ background: "var(--accent-bg)", border: "1px solid rgba(79,70,229,0.15)" }}>
+            <div className="rounded-2xl p-4 sm:p-5" style={{ background: "var(--accent-bg)", border: "1px solid rgba(79,70,229,0.15)" }}>
               <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "var(--accent)" }}>Business Hours</p>
               <div className="space-y-1.5 text-sm" style={{ color: "var(--text-muted)" }}>
-                <div className="flex justify-between"><span>Monday – Saturday</span><span className="font-semibold" style={{ color: "var(--text)" }}>9:00 AM – 6:00 PM</span></div>
+                <div className="flex flex-col gap-0.5 sm:flex-row sm:justify-between"><span>Monday – Saturday</span><span className="font-semibold" style={{ color: "var(--text)" }}>9:00 AM – 6:00 PM</span></div>
                 <div className="flex justify-between"><span>Sunday</span><span style={{ color: "var(--text-dim)" }}>Closed</span></div>
               </div>
             </div>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
-            className="rounded-2xl p-8" style={{ background: "var(--surface)", border: "1px solid var(--border)", boxShadow: "0 4px 20px rgba(0,0,0,0.05)" }}>
+            className="rounded-2xl p-5 sm:p-8" style={{ background: "var(--surface)", border: "1px solid var(--border)", boxShadow: "0 4px 20px rgba(0,0,0,0.05)" }}>
             <h2 className="mb-6 text-xl font-bold" style={{ color: "var(--text)" }}>Send us a message</h2>
             <form onSubmit={handleSubmit} className="space-y-5">
               {fields.map((field) => (

@@ -87,23 +87,6 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Desktop right */}
-        <div className="hidden items-center gap-3 md:flex">
-          <a href={business.phoneHref} className="text-xs font-medium transition-colors duration-200 hover:text-accent" style={{ color: "var(--text-muted)" }}>
-            {business.phone}
-          </a>
-          <a
-            href={business.loginUrl}
-            className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.02]"
-            style={{ background: "linear-gradient(135deg, #4f46e5, #6366f1)", boxShadow: "0 4px 12px rgba(79,70,229,0.2)" }}
-          >
-            Client Login
-            <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
-        </div>
-
         {/* Mobile hamburger */}
         <button
           type="button"
@@ -129,7 +112,7 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden md:hidden"
+            className="overflow-hidden fixed w-full md:hidden"
             style={{ background: "rgba(255,255,255,0.98)", borderTop: "1px solid var(--border)" }}
             aria-label="Mobile navigation"
           >
@@ -151,18 +134,7 @@ export default function Header() {
                   </NavLink>
                 </motion.div>
               ))}
-              <motion.div initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: navLinks.length * 0.06, duration: 0.3 }} className="mt-3 flex flex-col gap-2">
-                <a href={business.phoneHref} className="block rounded-xl px-4 py-3 text-sm font-medium" style={{ color: "var(--text-muted)", background: "var(--surface-2)", border: "1px solid var(--border)" }}>
-                  📞 {business.phone}
-                </a>
-                <a
-                  href={business.loginUrl}
-                  className="block rounded-xl px-4 py-3.5 text-center text-sm font-bold text-white"
-                  style={{ background: "linear-gradient(135deg, #4f46e5, #6366f1)", boxShadow: "0 4px 12px rgba(79,70,229,0.2)" }}
-                >
-                  Client Login ↗
-                </a>
-              </motion.div>
+
             </div>
           </motion.nav>
         )}
