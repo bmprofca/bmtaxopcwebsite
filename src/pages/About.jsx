@@ -21,204 +21,74 @@ const values = [
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
-  show: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] },
-  }),
+  show: (i) => ({ opacity: 1, y: 0, transition: { duration: 0.55, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] } }),
 };
 
 export default function About() {
   return (
     <>
-      <SEO
-        title="About BMTAX"
-        description="BMTAX INDIA (OPC) PRIVATE LIMITED is a tax consultancy and compliance service provider based in Kharupetia, Assam, serving individuals, small businesses and startups across India."
-        path="/about"
-      />
+      <SEO title="About BMTAX" description="BMTAX INDIA (OPC) PRIVATE LIMITED is a tax consultancy and compliance service provider based in Kharupetia, Assam, serving individuals, small businesses and startups across India." path="/about" />
 
-      {/* ── PAGE HERO ─────────────────────────────────── */}
       <section className="page-hero">
-        {/* Blobs */}
-        <div
-          className="blob animate-blob"
-          style={{
-            width: 400,
-            height: 400,
-            background: "radial-gradient(circle, #6366f1, transparent 70%)",
-            top: "-100px",
-            right: "10%",
-          }}
-        />
-        <div
-          className="blob animate-blob animation-delay-2000"
-          style={{
-            width: 300,
-            height: 300,
-            background: "radial-gradient(circle, #10b981, transparent 70%)",
-            bottom: "-50px",
-            left: "5%",
-          }}
-        />
-
+        <div className="blob animate-blob" style={{ width: 400, height: 400, background: "radial-gradient(circle, #818cf8, transparent 70%)", top: "-100px", right: "10%" }} />
+        <div className="blob animate-blob animation-delay-2000" style={{ width: 300, height: 300, background: "radial-gradient(circle, #06b6d4, transparent 70%)", bottom: "-50px", left: "5%" }} />
         <Container className="relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="eyebrow">About BMTAX</span>
-            <h1
-              className="mt-2 max-w-2xl text-4xl font-extrabold leading-tight sm:text-5xl"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-            >
-              A trusted partner for{" "}
-              <span className="gradient-text">taxation and compliance.</span>
+            <h1 className="mt-2 max-w-2xl text-4xl font-extrabold leading-tight sm:text-5xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text)" }}>
+              A trusted partner for <span className="gradient-text">taxation and compliance.</span>
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-relaxed" style={{ color: "rgba(148,163,184,0.8)" }}>
-              Based in Kharupetia, Assam — serving clients across India with expertise,
-              transparency and a commitment to getting it right.
-            </p>
+            <p className="mt-5 max-w-xl text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>Based in Kharupetia, Assam — serving clients across India with expertise, transparency and a commitment to getting it right.</p>
           </motion.div>
         </Container>
       </section>
 
-      {/* ── ABOUT + REGISTERED DETAILS ───────────────── */}
-      <section className="py-20" style={{ backgroundColor: "var(--deep)" }}>
+      <section className="py-20" style={{ backgroundColor: "var(--bg)" }}>
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-start">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-5"
-          >
-            <h2
-              className="text-2xl font-bold"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-            >
-              Who We Are
-            </h2>
-            <p className="text-sm leading-relaxed" style={{ color: "rgba(148,163,184,0.8)" }}>
-              <strong className="text-white">{business.legalName}</strong>, popularly known as
-              BMTAX, is a professional tax consultancy and compliance service provider dedicated to
-              simplifying financial, legal and regulatory processes for individuals, small businesses
-              and startups across India.
-            </p>
-            <p className="text-sm leading-relaxed" style={{ color: "rgba(148,163,184,0.8)" }}>
-              With a client-first approach and in-depth domain knowledge, BMTAX acts as a trusted
-              partner for your end-to-end taxation and compliance needs.
-            </p>
-            <p className="text-sm leading-relaxed" style={{ color: "rgba(148,163,184,0.8)" }}>
-              We offer a wide range of services including GST registration and return filing,
-              Income Tax returns, tax audits, Udyam registration, balance sheet and profit &amp;
-              loss account preparation, and more — reliable, affordable and always on time.
-            </p>
-
-            {/* Values */}
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="space-y-5">
+            <h2 className="text-2xl font-bold" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text)" }}>Who We Are</h2>
+            <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}><strong style={{ color: "var(--text)" }}>{business.legalName}</strong>, popularly known as BMTAX, is a professional tax consultancy and compliance service provider dedicated to simplifying financial, legal and regulatory processes for individuals, small businesses and startups across India.</p>
+            <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>With a client-first approach and in-depth domain knowledge, BMTAX acts as a trusted partner for your end-to-end taxation and compliance needs.</p>
+            <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>We offer a wide range of services including GST registration and return filing, Income Tax returns, tax audits, Udyam registration, balance sheet and profit &amp; loss account preparation, and more — reliable, affordable and always on time.</p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               {values.map((v, i) => (
-                <motion.div
-                  key={v.title}
-                  custom={i}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                  className="rounded-xl p-4"
-                  style={{
-                    background: "rgba(30,41,59,0.6)",
-                    border: "1px solid rgba(255,255,255,0.06)",
-                  }}
-                >
+                <motion.div key={v.title} custom={i} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
+                  className="rounded-xl p-4" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
                   <div className="text-2xl">{v.icon}</div>
-                  <h3 className="mt-2 text-sm font-bold text-white">{v.title}</h3>
-                  <p className="mt-1 text-xs leading-relaxed" style={{ color: "rgba(148,163,184,0.7)" }}>
-                    {v.desc}
-                  </p>
+                  <h3 className="mt-2 text-sm font-bold" style={{ color: "var(--text)" }}>{v.title}</h3>
+                  <p className="mt-1 text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>{v.desc}</p>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-          >
-            {/* Registered details */}
-            <div
-              className="rounded-2xl p-7"
-              style={{
-                background: "rgba(30,41,59,0.7)",
-                border: "1px solid rgba(99,102,241,0.15)",
-                backdropFilter: "blur(12px)",
-              }}
-            >
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }}>
+            <div className="rounded-2xl p-7" style={{ background: "var(--surface)", border: "1px solid var(--border)", boxShadow: "0 2px 15px rgba(0,0,0,0.04)" }}>
               <div className="flex items-center gap-3 mb-6">
                 <div className="icon-circle text-base">🏢</div>
-                <h2 className="text-base font-bold text-white">Registered Details</h2>
+                <h2 className="text-base font-bold" style={{ color: "var(--text)" }}>Registered Details</h2>
               </div>
               <dl className="space-y-4">
-                {[
-                  { label: "Legal Name", value: business.legalName },
-                  { label: "CIN", value: business.cin },
-                  { label: "PAN", value: business.pan },
-                  { label: "Registered Office", value: business.address.full },
-                  { label: "Phone", value: business.phone },
-                  { label: "Email", value: business.email },
-                ].map((item) => (
-                  <div
-                    key={item.label}
-                    className="flex justify-between gap-4 pb-4"
-                    style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}
-                  >
-                    <dt className="font-mono text-xs font-semibold uppercase tracking-wider" style={{ color: "rgba(148,163,184,0.5)", flexShrink: 0 }}>
-                      {item.label}
-                    </dt>
-                    <dd className="text-right text-xs font-medium text-white">
-                      {item.value}
-                    </dd>
+                {[{ label: "Legal Name", value: business.legalName }, { label: "CIN", value: business.cin }, { label: "PAN", value: business.pan }, { label: "Registered Office", value: business.address.full }, { label: "Phone", value: business.phone }, { label: "Email", value: business.email }].map((item) => (
+                  <div key={item.label} className="flex justify-between gap-4 pb-4" style={{ borderBottom: "1px solid var(--border)" }}>
+                    <dt className="font-mono text-xs font-semibold uppercase tracking-wider shrink-0" style={{ color: "var(--text-dim)" }}>{item.label}</dt>
+                    <dd className="text-right text-xs font-medium" style={{ color: "var(--text)" }}>{item.value}</dd>
                   </div>
                 ))}
               </dl>
             </div>
-
-            {/* Timeline */}
             <div className="mt-6 space-y-4">
-              <h3 className="text-sm font-bold text-white">Our Journey</h3>
+              <h3 className="text-sm font-bold" style={{ color: "var(--text)" }}>Our Journey</h3>
               <div className="space-y-3">
                 {milestones.map((m, i) => (
-                  <motion.div
-                    key={i}
-                    custom={i}
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true }}
-                    className="flex gap-4"
-                  >
+                  <motion.div key={i} custom={i} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="flex gap-4">
                     <div className="flex flex-col items-center">
-                      <div
-                        className="flex h-8 w-14 shrink-0 items-center justify-center rounded-lg text-xs font-bold"
-                        style={{
-                          background: "rgba(99,102,241,0.12)",
-                          border: "1px solid rgba(99,102,241,0.2)",
-                          color: "var(--accent-light)",
-                        }}
-                      >
-                        {m.year}
-                      </div>
-                      {i < milestones.length - 1 && (
-                        <div className="mt-2 h-full w-px" style={{ background: "rgba(99,102,241,0.15)" }} />
-                      )}
+                      <div className="flex h-8 w-14 shrink-0 items-center justify-center rounded-lg text-xs font-bold" style={{ background: "var(--accent-bg)", border: "1px solid rgba(79,70,229,0.12)", color: "var(--accent)" }}>{m.year}</div>
+                      {i < milestones.length - 1 && <div className="mt-2 h-full w-px" style={{ background: "rgba(79,70,229,0.12)" }} />}
                     </div>
                     <div className="pb-4">
-                      <p className="text-xs font-semibold text-white">{m.title}</p>
-                      <p className="mt-0.5 text-xs leading-relaxed" style={{ color: "rgba(148,163,184,0.6)" }}>
-                        {m.desc}
-                      </p>
+                      <p className="text-xs font-semibold" style={{ color: "var(--text)" }}>{m.title}</p>
+                      <p className="mt-0.5 text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>{m.desc}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -228,30 +98,14 @@ export default function About() {
         </Container>
       </section>
 
-      {/* ── TEAM ──────────────────────────────────────── */}
-      <section
-        className="py-20"
-        style={{
-          background: "rgba(30,41,59,0.25)",
-          borderTop: "1px solid rgba(99,102,241,0.08)",
-        }}
-      >
+      <section className="py-20" style={{ background: "var(--surface)", borderTop: "1px solid var(--border)" }}>
         <Container>
           <div className="mb-10">
             <span className="eyebrow">Meet Our Team</span>
-            <h2
-              className="mt-2 text-3xl font-extrabold sm:text-4xl"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-            >
-              The people behind{" "}
-              <span className="gradient-text">every filing.</span>
-            </h2>
+            <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text)" }}>The people behind <span className="gradient-text">every filing.</span></h2>
           </div>
-
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {team.map((member, i) => (
-              <TeamCard key={member.name} member={member} index={i} />
-            ))}
+            {team.map((member, i) => (<TeamCard key={member.name} member={member} index={i} />))}
           </div>
         </Container>
       </section>

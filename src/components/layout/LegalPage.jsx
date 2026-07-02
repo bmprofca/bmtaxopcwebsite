@@ -1,46 +1,59 @@
 import { motion } from "framer-motion";
+import { Container } from "../ui/Primitives";
 import SEO from "./SEO";
-import { Container, Eyebrow } from "../ui/Primitives";
 
-export default function LegalPage({ path, title, description, effectiveDate, eyebrow, children }) {
+/** Individual section block within a legal page */
+export function LegalSection({ heading, children }) {
+  return (
+    <div>
+      <h2 className="mb-3 text-base font-bold" style={{ color: "var(--text)", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+        {heading}
+      </h2>
+      <div className="space-y-3 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+/** Page wrapper for legal/policy pages */
+export default function LegalPage({ title, eyebrow, description, path, effectiveDate, children }) {
   return (
     <>
-      <SEO title={title} description={description} path={path} />
+      {path && description && (
+        <SEO title={title} description={description} path={path} />
+      )}
 
-      <section className="bg-ink-700 py-20 text-paper-100">
-        <Container>
-          <Eyebrow>{eyebrow}</Eyebrow>
-          <h1 className="max-w-2xl text-4xl font-semibold sm:text-5xl">{title}</h1>
-          {effectiveDate && (
-            <p className="mt-4 font-mono text-xs uppercase tracking-wider text-paper-100/50">
-              Effective date: {effectiveDate}
-            </p>
-          )}
+      <section className="page-hero">
+        <div className="blob animate-blob" style={{ width: 400, height: 400, background: "radial-gradient(circle, #818cf8, transparent 70%)", top: "-80px", right: "5%" }} />
+        <Container className="relative z-10">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <span className="eyebrow">{eyebrow || "Legal"}</span>
+            <h1 className="mt-2 max-w-2xl text-4xl font-extrabold leading-tight sm:text-5xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              <span className="gradient-text">{title}</span>
+            </h1>
+            {effectiveDate && (
+              <p className="mt-4 text-sm" style={{ color: "var(--text-dim)" }}>
+                Effective date: {effectiveDate}
+              </p>
+            )}
+          </motion.div>
         </Container>
       </section>
 
-      <section className="bg-paper-100 py-16">
-        <Container className="max-w-3xl">
+      <section className="py-20" style={{ backgroundColor: "var(--bg)" }}>
+        <Container>
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="prose-legal space-y-8 text-ink-700/80"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mx-auto max-w-3xl space-y-8 rounded-2xl p-8 sm:p-10"
+            style={{ background: "var(--surface)", border: "1px solid var(--border)", boxShadow: "0 2px 15px rgba(0,0,0,0.04)" }}
           >
             {children}
           </motion.div>
         </Container>
       </section>
     </>
-  );
-}
-
-export function LegalSection({ heading, children }) {
-  return (
-    <div>
-      <h2 className="text-xl font-semibold text-ink-800">{heading}</h2>
-      <div className="mt-3 space-y-3 text-sm leading-relaxed sm:text-base">{children}</div>
-    </div>
   );
 }

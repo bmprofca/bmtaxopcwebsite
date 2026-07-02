@@ -1,17 +1,61 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import SEO from "../components/layout/SEO";
-import { Container, Eyebrow } from "../components/ui/Primitives";
+import { Container } from "../components/ui/Primitives";
 import { business } from "../data/business";
 
 const fields = [
-  { name: "name", label: "Full name", type: "text", required: true },
-  { name: "email", label: "Email address", type: "email", required: true },
-  { name: "phone", label: "Phone number", type: "tel", required: false }
+  { name: "name", label: "Full Name", placeholder: "Your full name", type: "text", required: true },
+  { name: "email", label: "Email Address", placeholder: "you@example.com", type: "email", required: true },
+  { name: "phone", label: "Phone Number", placeholder: "+91 XXXXX XXXXX", type: "tel", required: false },
 ];
+
+const contactItems = [
+  {
+    icon: (
+      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+      </svg>
+    ),
+    label: "Mobile",
+    value: business.phone,
+    href: business.phoneHref,
+    color: "accent",
+  },
+  {
+    icon: (
+      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+    ),
+    label: "Email",
+    value: business.email,
+    href: `mailto:${business.email}`,
+    color: "emerald",
+  },
+  {
+    icon: (
+      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+    ),
+    label: "Address",
+    value: business.address.full,
+    href: null,
+    color: "gold",
+  },
+];
+
+const colorConfig = {
+  accent: { iconClass: "icon-circle" },
+  emerald: { iconClass: "icon-circle-emerald" },
+  gold: { iconClass: "icon-circle-gold" },
+};
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
@@ -33,109 +77,196 @@ export default function Contact() {
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "ContactPage",
-          name: "Contact BMTAX"
+          name: "Contact BMTAX",
         }}
       />
 
-      <section className="bg-ink-700 py-20 text-paper-100">
-        <Container>
-          <Eyebrow>Get In Touch</Eyebrow>
-          <h1 className="max-w-2xl text-4xl font-semibold sm:text-5xl">Let&apos;s sort your compliance.</h1>
-          <p className="mt-5 max-w-xl text-paper-100/70">
-            Reach out for GST, Income Tax, audits, registrations or any compliance question &mdash;
-            we usually respond within one business day.
-          </p>
+      {/* ── HERO ──────────────────────────────────────── */}
+      <section className="page-hero">
+        <div
+          className="blob animate-blob"
+          style={{
+            width: 450,
+            height: 450,
+            background: "radial-gradient(circle, #6366f1, transparent 70%)",
+            top: "-100px",
+            right: "5%",
+          }}
+        />
+
+        <Container className="relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="eyebrow">Get In Touch</span>
+            <h1
+              className="mt-2 max-w-2xl text-4xl font-extrabold leading-tight sm:text-5xl"
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            >
+              Let's sort your{" "}
+              <span className="gradient-text">compliance.</span>
+            </h1>
+            <p className="mt-5 max-w-xl text-base leading-relaxed" style={{ color: "rgba(148,163,184,0.8)" }}>
+              Reach out for GST, Income Tax, audits, registrations or any compliance question —
+              we usually respond within one business day.
+            </p>
+          </motion.div>
         </Container>
       </section>
 
-      <section className="bg-paper-100 py-20">
-        <Container className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+      {/* ── CONTACT SECTION ───────────────────────────── */}
+      <section className="py-20" style={{ backgroundColor: "var(--deep)" }}>
+        <Container className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+
+          {/* Left: contact info */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="space-y-8"
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
           >
-            <div>
-              <h2 className="eyebrow">Mobile</h2>
-              <a href={business.phoneHref} className="mt-1 block text-lg font-medium text-ink-800 hover:text-teal-600">
-                {business.phone}
-              </a>
-            </div>
-            <div>
-              <h2 className="eyebrow">Email</h2>
-              <a href={`mailto:${business.email}`} className="mt-1 block text-lg font-medium text-ink-800 hover:text-teal-600">
-                {business.email}
-              </a>
-            </div>
-            <div>
-              <h2 className="eyebrow">Address</h2>
-              <p className="mt-1 text-lg font-medium text-ink-800">{business.address.full}</p>
+            <h2 className="text-xl font-bold text-white">Contact Information</h2>
+
+            {/* Contact items */}
+            <div className="space-y-4">
+              {contactItems.map((item) => (
+                <div
+                  key={item.label}
+                  className="flex items-start gap-4 rounded-2xl p-5 transition-all duration-200"
+                  style={{
+                    background: "rgba(30,41,59,0.6)",
+                    border: "1px solid rgba(255,255,255,0.06)",
+                  }}
+                >
+                  <div className={colorConfig[item.color].iconClass}>{item.icon}</div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: "rgba(148,163,184,0.5)" }}>
+                      {item.label}
+                    </p>
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        className="text-sm font-medium text-white transition-colors hover:text-accent-light"
+                        onMouseEnter={(e) => { e.currentTarget.style.color = "var(--accent-light)"; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.color = "#f8fafc"; }}
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="text-sm font-medium text-white">{item.value}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
 
-            <div className="overflow-hidden border border-ink-700/10">
+            {/* Map */}
+            <div
+              className="overflow-hidden rounded-2xl"
+              style={{ border: "1px solid rgba(99,102,241,0.15)" }}
+            >
               <iframe
                 title="BMTAX office location map"
                 src={business.mapEmbed}
-                className="h-64 w-full"
+                className="h-56 w-full"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
+
+            {/* Hours */}
+            <div
+              className="rounded-2xl p-5"
+              style={{
+                background: "rgba(99,102,241,0.06)",
+                border: "1px solid rgba(99,102,241,0.15)",
+              }}
+            >
+              <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "var(--accent-light)" }}>
+                Business Hours
+              </p>
+              <div className="space-y-1.5 text-sm" style={{ color: "rgba(148,163,184,0.75)" }}>
+                <div className="flex justify-between">
+                  <span>Monday – Saturday</span>
+                  <span className="font-semibold text-white">9:00 AM – 6:00 PM</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Sunday</span>
+                  <span style={{ color: "rgba(148,163,184,0.4)" }}>Closed</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
-          <motion.form
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+          {/* Right: form */}
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            onSubmit={handleSubmit}
-            className="space-y-5 border border-ink-700/10 bg-paper-200 p-8"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="rounded-2xl p-8"
+            style={{
+              background: "rgba(30,41,59,0.7)",
+              border: "1px solid rgba(99,102,241,0.15)",
+              backdropFilter: "blur(12px)",
+            }}
           >
-            <h2 className="text-lg font-semibold text-ink-800">Send us a message</h2>
+            <h2 className="mb-6 text-xl font-bold text-white">Send us a message</h2>
 
-            {fields.map((field) => (
-              <div key={field.name}>
-                <label htmlFor={field.name} className="mb-1.5 block text-sm font-medium text-ink-700/80">
-                  {field.label} {field.required && <span aria-hidden="true">*</span>}
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {fields.map((field) => (
+                <div key={field.name}>
+                  <label htmlFor={field.name} className="form-label">
+                    {field.label}
+                    {field.required && <span className="ml-1 text-red-400">*</span>}
+                  </label>
+                  <input
+                    id={field.name}
+                    name={field.name}
+                    type={field.type}
+                    required={field.required}
+                    placeholder={field.placeholder}
+                    value={form[field.name]}
+                    onChange={handleChange}
+                    className="form-input"
+                  />
+                </div>
+              ))}
+
+              <div>
+                <label htmlFor="message" className="form-label">
+                  How can we help?
                 </label>
-                <input
-                  id={field.name}
-                  name={field.name}
-                  type={field.type}
-                  required={field.required}
-                  value={form[field.name]}
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  placeholder="Describe your requirement..."
+                  value={form.message}
                   onChange={handleChange}
-                  className="w-full border border-ink-700/20 bg-paper-100 px-4 py-3 text-sm text-ink-800 outline-none transition-colors focus:border-brass-400"
+                  className="form-input resize-none"
                 />
               </div>
-            ))}
 
-            <div>
-              <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-ink-700/80">
-                How can we help?
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={4}
-                value={form.message}
-                onChange={handleChange}
-                className="w-full resize-none border border-ink-700/20 bg-paper-100 px-4 py-3 text-sm text-ink-800 outline-none transition-colors focus:border-brass-400"
-              />
-            </div>
+              <button
+                type="submit"
+                className="w-full rounded-xl py-4 text-sm font-bold text-white transition-all duration-300 hover:scale-[1.01] hover:shadow-glow active:scale-[0.99]"
+                style={{
+                  background: "linear-gradient(135deg, #6366f1, #4f46e5)",
+                  boxShadow: "0 4px 20px rgba(99,102,241,0.3)",
+                }}
+              >
+                Send Message →
+              </button>
 
-            <button
-              type="submit"
-              className="w-full bg-ink-700 px-6 py-3 text-sm font-semibold tracking-wide text-paper-100 transition-colors hover:bg-ink-800"
-            >
-              Send message
-            </button>
-            <p className="text-xs text-ink-700/50">
-              Submitting opens your email app with this message addressed to {business.email}.
-            </p>
-          </motion.form>
+              <p className="text-center text-xs" style={{ color: "rgba(148,163,184,0.4)" }}>
+                Submitting opens your email app addressed to {business.email}.
+              </p>
+            </form>
+          </motion.div>
         </Container>
       </section>
     </>
