@@ -7,10 +7,10 @@ import { business } from "../data/business";
 import { services } from "../data/services";
 
 const stats = [
-  { number: "500+", label: "Happy Clients" },
-  { number: "9+", label: "Core Services" },
+  { number: "3000+", label: "Happy Clients" },
+  { number: "35+", label: "Core Services" },
   { number: "100%", label: "Compliance Rate" },
-  { number: "3+", label: "Years Active" },
+  { number: "10+", label: "Years Active" },
 ];
 
 const highlights = [
