@@ -50,13 +50,13 @@ export default function Home() {
       />
 
       {/* ── HERO ─────────────────────────────────────── */}
-      <section className="hero-section flex items-center lg:min-h-[90vh]">
+      <section className="hero-section flex items-center lg:min-h-[80vh]">
         <div className="hero-bg" />
         <div className="blob animate-blob h-[500px] w-[500px]" style={{ background: "radial-gradient(circle, #818cf8, transparent 70%)", top: "5%", right: "5%" }} />
         <div className="blob animate-blob h-[400px] w-[400px] animation-delay-2000" style={{ background: "radial-gradient(circle, #06b6d4, transparent 70%)", bottom: "10%", left: "10%" }} />
         <div className="blob animate-blob h-[300px] w-[300px] animation-delay-4000" style={{ background: "radial-gradient(circle, #a78bfa, transparent 70%)", top: "40%", left: "30%", opacity: 0.08 }} />
 
-        <Container className="relative z-10 grid items-center gap-8 py-12 sm:py-16 lg:grid-cols-2 lg:gap-12 lg:py-28">
+        <Container className="relative z-10 grid items-center gap-8 py-12 sm:py-16 lg:grid-cols-2 lg:gap-12 lg:py-20">
           <div>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
               <span className="eyebrow">Tax Consultancy · Kharupetia, Assam</span>
@@ -124,7 +124,7 @@ export default function Home() {
       </section>
 
       {/* ── ABOUT STRIP ──────────────────────────────── */}
-      <section className="py-14 sm:py-20" style={{ background: "var(--surface)" }}>
+      <section className="py-14 sm:py-16" style={{ background: "var(--surface)" }}>
         <Container className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-center lg:gap-12">
           <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <div className="overflow-hidden rounded-2xl" style={{ boxShadow: "0 12px 30px rgba(0,0,0,0.08)" }}>
@@ -151,7 +151,7 @@ export default function Home() {
       <Container><div className="section-divider" /></Container>
 
       {/* ── SERVICES ─────────────────────────────────── */}
-      <section className="py-14 sm:py-20 lg:py-24" style={{ backgroundColor: "var(--bg)" }}>
+      <section className="py-14 sm:py-16 lg:py-20" style={{ backgroundColor: "var(--bg)" }}>
         <Container>
           <div className="flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-end">
             <div>
@@ -167,7 +167,7 @@ export default function Home() {
       </section>
 
       {/* ── WHY CHOOSE US ────────────────────────────── */}
-      <section className="py-14 sm:py-20 lg:py-24" style={{ background: "var(--surface)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
+      <section className="py-14 sm:py-16 lg:py-20" style={{ background: "var(--surface)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
         <Container>
           <div className="max-w-xl">
             <span className="eyebrow">Why Choose BMTAX?</span>
@@ -196,7 +196,7 @@ export default function Home() {
       </section>
 
       {/* ── CTA ──────────────────────────────────────── */}
-      <section className="relative overflow-hidden py-14 sm:py-20 lg:py-24">
+      <section className="relative overflow-hidden py-14 sm:py-16 lg:py-20">
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #eef2ff 0%, #e0e7ff 40%, #ecfdf5 100%)" }} />
         <div className="blob" style={{ background: "radial-gradient(circle, rgba(79,70,229,0.15) 0%, transparent 70%)", width: 600, height: 600, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} />
         <Container className="relative z-10 flex flex-col items-center gap-6 text-center">

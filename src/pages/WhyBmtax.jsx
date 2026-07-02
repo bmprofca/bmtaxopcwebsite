@@ -65,7 +65,7 @@ export default function WhyBmtax() {
         </Container>
       </div>
 
-      <section className="py-14 sm:py-20" style={{ backgroundColor: "var(--surface)" }}>
+      <section className="py-14 sm:py-16" style={{ backgroundColor: "var(--surface)" }}>
         <Container>
           <div className="mb-8 sm:mb-10">
             <span className="eyebrow">Our Advantages</span>

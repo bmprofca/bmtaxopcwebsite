@@ -60,7 +60,7 @@ export default function Contact() {
         </Container>
       </section>
 
-      <section className="py-14 sm:py-20" style={{ backgroundColor: "var(--bg)" }}>
+      <section className="py-14 sm:py-16" style={{ backgroundColor: "var(--bg)" }}>
         <Container className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10">
           <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="space-y-5 sm:space-y-6">
             <h2 className="text-xl font-bold" style={{ color: "var(--text)" }}>Contact Information</h2>

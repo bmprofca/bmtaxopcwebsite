@@ -48,7 +48,7 @@ export default function About() {
         </Container>
       </section>
 
-      <section className="py-14 sm:py-20" style={{ backgroundColor: "var(--bg)" }}>
+      <section className="py-14 sm:py-16" style={{ backgroundColor: "var(--bg)" }}>
         <Container className="grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-12">
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="space-y-5">
             <div className="overflow-hidden rounded-2xl" style={{ boxShadow: "0 12px 30px rgba(0,0,0,0.08)" }}>
@@ -111,7 +111,7 @@ export default function About() {
         </Container>
       </section>
 
-      <section className="py-14 sm:py-20" style={{ background: "var(--surface)", borderTop: "1px solid var(--border)" }}>
+      <section className="py-14 sm:py-16" style={{ background: "var(--surface)", borderTop: "1px solid var(--border)" }}>
         <Container>
           <div className="mb-8 sm:mb-10">
             <span className="eyebrow">Meet Our Team</span>

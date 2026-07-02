@@ -36,7 +36,7 @@ export default function Services() {
         </Container>
       </section>
 
-      <section className="py-14 sm:py-20" style={{ backgroundColor: "var(--bg)" }}>
+      <section className="py-14 sm:py-16" style={{ backgroundColor: "var(--bg)" }}>
         <Container>
           <div className="mb-8 flex flex-wrap gap-2 sm:mb-10">
             {categories.map((cat) => (
