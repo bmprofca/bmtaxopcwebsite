@@ -32,9 +32,11 @@ export default function Footer() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl text-lg font-bold text-white" style={{ background: "linear-gradient(135deg, #4f46e5, #6366f1)" }}>
-                B
-              </div>
+              <img
+                src="/logo512.jpg"
+                alt="BMTAX Logo"
+                className="h-14 w-16 object-contain rounded-xl transition-all duration-300 group-hover:scale-105"
+              />
               <div>
                 <div className="font-display text-lg font-bold" style={{ color: "var(--text)" }}>BMTAX</div>
                 <div className="text-[9px] font-semibold uppercase tracking-[0.18em]" style={{ color: "var(--text-dim)" }}>India (OPC) Pvt. Ltd.</div>

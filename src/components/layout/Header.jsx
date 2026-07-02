@@ -44,12 +44,11 @@ export default function Header() {
       <div className="container-page flex h-[68px] items-center justify-between">
         {/* Logo */}
         <Link to="/" className="group flex items-center gap-3" aria-label="BMTAX home">
-          <div
-            className="relative flex h-10 w-10 items-center justify-center rounded-xl font-bold text-white text-lg transition-all duration-300 group-hover:scale-105"
-            style={{ background: "linear-gradient(135deg, #4f46e5, #6366f1)", boxShadow: "0 4px 12px rgba(79,70,229,0.25)" }}
-          >
-            B
-          </div>
+          <img
+            src="/logo512.jpg"
+            alt="BMTAX Logo"
+            className="h-14 w-16 object-contain rounded-xl transition-all duration-300 group-hover:scale-105"
+          />
           <div className="flex flex-col leading-none">
             <span className="font-display text-lg font-bold" style={{ color: "var(--text)" }}>BMTAX</span>
             <span className="text-[9px] font-semibold uppercase tracking-[0.2em]" style={{ color: "var(--text-dim)" }}>
