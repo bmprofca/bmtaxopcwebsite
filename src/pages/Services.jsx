@@ -9,6 +9,11 @@ const categories = [
   { id: "all", label: "All Services" }, { id: "GST", label: "GST" }, { id: "ITR", label: "Income Tax" }, { id: "AUD", label: "Audit" }, { id: "FIN", label: "Financial" }, { id: "MSME", label: "MSME" }, { id: "TDS", label: "TDS" },
 ];
 
+// Free-to-use images (Unsplash License)
+const IMAGES = {
+  hero: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80", // business meeting
+};
+
 export default function Services() {
   const [activeCategory, setActiveCategory] = useState("all");
   const filtered = activeCategory === "all" ? services : services.filter((s) => s.code.startsWith(activeCategory));
@@ -19,7 +24,7 @@ export default function Services() {
 
       <section className="page-hero">
         <div className="blob animate-blob" style={{ width: 450, height: 450, background: "radial-gradient(circle, #818cf8, transparent 70%)", top: "-80px", right: "0%" }} />
-        <Container className="relative z-10">
+        <Container className="relative z-10 grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="eyebrow">What We Do</span>
             <h1 className="mt-2 max-w-2xl text-4xl font-extrabold leading-tight sm:text-5xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text)" }}>Every filing, registration &amp; report — <span className="gradient-text">handled.</span></h1>
@@ -31,6 +36,18 @@ export default function Services() {
                   <div className="text-xs font-medium" style={{ color: "var(--text-dim)" }}>{s.l}</div>
                 </div>
               ))}
+            </div>
+          </motion.div>
+
+          {/* Hero image */}
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="hidden lg:block">
+            <div className="overflow-hidden rounded-2xl" style={{ boxShadow: "0 16px 40px rgba(79,70,229,0.12)" }}>
+              <img
+                src={IMAGES.hero}
+                alt="Modern professional office workspace"
+                className="h-[320px] w-full object-cover"
+                loading="eager"
+              />
             </div>
           </motion.div>
         </Container>

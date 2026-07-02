@@ -27,6 +27,9 @@ const fadeUp = {
 // Free-to-use images (Unsplash License — free for commercial & personal use, no permission needed, no attribution required)
 const IMAGES = {
   whoWeAre: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=80", // Dylan Gillis — team collaborating around a table
+  office: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80", // modern office interior
+  documents: "https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=1000&q=80", // businessmen meeting
+  meeting: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=1000&q=80", // team discussion
 };
 
 export default function About() {
@@ -48,6 +51,25 @@ export default function About() {
         </Container>
       </section>
 
+      {/* Photo gallery strip */}
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }}>
+        <Container className="-mt-2 mb-0">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+            {[
+              { src: IMAGES.whoWeAre, alt: "Team collaborating" },
+              { src: IMAGES.office, alt: "Modern office workspace" },
+              { src: IMAGES.documents, alt: "Financial documents and laptop" },
+              { src: IMAGES.meeting, alt: "Team meeting and brainstorming" },
+            ].map((img, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
+                className="overflow-hidden rounded-xl" style={{ boxShadow: "0 6px 20px rgba(0,0,0,0.08)" }}>
+                <img src={img.src} alt={img.alt} className="h-32 w-full object-cover sm:h-40" loading="lazy" />
+              </motion.div>
+            ))}
+          </div>
+        </Container>
+      </motion.div>
+
       <section className="py-14 sm:py-16" style={{ backgroundColor: "var(--bg)" }}>
         <Container className="grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-12">
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="space-y-5">
@@ -63,6 +85,17 @@ export default function About() {
             <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}><strong style={{ color: "var(--text)" }}>{business.legalName}</strong>, popularly known as BMTAX, is a professional tax consultancy and compliance service provider dedicated to simplifying financial, legal and regulatory processes for individuals, small businesses and startups across India.</p>
             <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>With a client-first approach and in-depth domain knowledge, BMTAX acts as a trusted partner for your end-to-end taxation and compliance needs.</p>
             <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>We offer a wide range of services including GST registration and return filing, Income Tax returns, tax audits, Udyam registration, balance sheet and profit &amp; loss account preparation, and more — reliable, affordable and always on time.</p>
+
+            {/* Additional workspace image */}
+            <div className="overflow-hidden rounded-2xl" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.06)" }}>
+              <img
+                src={IMAGES.documents}
+                alt="Financial documents and analysis on desk"
+                className="h-44 w-full object-cover sm:h-52"
+                loading="lazy"
+              />
+            </div>
+
             <div className="mt-5 grid gap-3 sm:mt-6 sm:grid-cols-2 sm:gap-4">
               {values.map((v, i) => (
                 <motion.div key={v.title} custom={i} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
@@ -90,6 +123,17 @@ export default function About() {
                 ))}
               </dl>
             </div>
+
+            {/* Office image card */}
+            <div className="mt-6 overflow-hidden rounded-2xl" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.06)" }}>
+              <img
+                src={IMAGES.office}
+                alt="Professional office environment"
+                className="h-44 w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+
             <div className="mt-6 space-y-4">
               <h3 className="text-sm font-bold" style={{ color: "var(--text)" }}>Our Journey</h3>
               <div className="space-y-3">
@@ -111,11 +155,22 @@ export default function About() {
         </Container>
       </section>
 
+      {/* Team section with group image */}
       <section className="py-14 sm:py-16" style={{ background: "var(--surface)", borderTop: "1px solid var(--border)" }}>
         <Container>
-          <div className="mb-8 sm:mb-10">
-            <span className="eyebrow">Meet Our Team</span>
-            <h2 className="mt-2 text-2xl font-extrabold sm:text-4xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text)" }}>The people behind <span className="gradient-text">every filing.</span></h2>
+          <div className="mb-8 grid items-end gap-6 sm:mb-10 lg:grid-cols-[1fr_auto]">
+            <div>
+              <span className="eyebrow">Meet Our Team</span>
+              <h2 className="mt-2 text-2xl font-extrabold sm:text-4xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text)" }}>The people behind <span className="gradient-text">every filing.</span></h2>
+            </div>
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="hidden overflow-hidden rounded-xl lg:block" style={{ boxShadow: "0 8px 20px rgba(0,0,0,0.06)" }}>
+              <img
+                src={IMAGES.meeting}
+                alt="Team meeting and collaboration"
+                className="h-28 w-52 object-cover"
+                loading="lazy"
+              />
+            </motion.div>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {team.map((member, i) => (<TeamCard key={member.name} member={member} index={i} />))}

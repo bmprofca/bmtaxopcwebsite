@@ -36,7 +36,9 @@ const fadeUp = {
 // Free-to-use images (Unsplash License — free for commercial & personal use, no permission needed, no attribution required)
 const IMAGES = {
   hero: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80", // Scott Graham — paperwork/laptop meeting
-  about: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80", // Kelly Sikkema — paper, pen & calculator
+  about: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=900&q=80", // calculator and money
+  cta: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80", // team brainstorming
+  services: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80", // team collaborating at desk
 };
 
 export default function Home() {
@@ -153,12 +155,17 @@ export default function Home() {
       {/* ── SERVICES ─────────────────────────────────── */}
       <section className="py-14 sm:py-16 lg:py-20" style={{ backgroundColor: "var(--bg)" }}>
         <Container>
-          <div className="flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-end">
-            <div>
-              <span className="eyebrow">Popular Services</span>
-              <h2 className="mt-2 text-2xl font-extrabold sm:text-4xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text)" }}>Filed right. <span className="gradient-text">On time. Every time.</span></h2>
+          <div className="grid items-end gap-6 lg:grid-cols-[1fr_auto]">
+            <div className="flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-end">
+              <div>
+                <span className="eyebrow">Popular Services</span>
+                <h2 className="mt-2 text-2xl font-extrabold sm:text-4xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text)" }}>Filed right. <span className="gradient-text">On time. Every time.</span></h2>
+              </div>
+              <Link to="/services" className="btn-outline shrink-0 text-xs">View all services →</Link>
             </div>
-            <Link to="/services" className="btn-outline shrink-0 text-xs">View all services →</Link>
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="hidden overflow-hidden rounded-xl lg:block" style={{ boxShadow: "0 8px 20px rgba(0,0,0,0.06)" }}>
+              <img src={IMAGES.services} alt="Team collaborating on client work" className="h-24 w-44 object-cover" loading="lazy" />
+            </motion.div>
           </div>
           <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
             {services.map((service, i) => (<ServiceCard key={service.slug} service={service} index={i} />))}
@@ -199,17 +206,22 @@ export default function Home() {
       <section className="relative overflow-hidden py-14 sm:py-16 lg:py-20">
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #eef2ff 0%, #e0e7ff 40%, #ecfdf5 100%)" }} />
         <div className="blob" style={{ background: "radial-gradient(circle, rgba(79,70,229,0.15) 0%, transparent 70%)", width: 600, height: 600, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} />
-        <Container className="relative z-10 flex flex-col items-center gap-6 text-center">
+        <Container className="relative z-10 grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <span className="eyebrow">Ready to Start?</span>
             <h2 className="mt-3 max-w-2xl text-2xl font-extrabold sm:text-4xl lg:text-5xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text)" }}>
               Ready to get <span className="gradient-text">compliant, stress-free?</span>
             </h2>
-            <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>Talk to our team about GST, ITR, audits or registration — we'll take it from there.</p>
+            <p className="mt-5 max-w-md text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>Talk to our team about GST, ITR, audits or registration — we'll take it from there.</p>
+            <div className="mt-6 flex flex-wrap gap-4">
+              <Link to="/contact" className="btn-primary hover:scale-[1.04]">Contact BMTAX <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg></Link>
+              <a href={business.phoneHref} className="btn-outline">📞 Call Now</a>
+            </div>
           </motion.div>
-          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }} className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact" className="btn-primary hover:scale-[1.04]">Contact BMTAX <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg></Link>
-            <a href={business.phoneHref} className="btn-outline">📞 Call Now</a>
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }} className="hidden lg:block">
+            <div className="overflow-hidden rounded-2xl" style={{ boxShadow: "0 16px 40px rgba(79,70,229,0.15)" }}>
+              <img src={IMAGES.cta} alt="Team brainstorming and working together" className="h-64 w-full object-cover" loading="lazy" />
+            </div>
           </motion.div>
         </Container>
       </section>

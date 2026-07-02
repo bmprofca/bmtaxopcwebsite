@@ -35,24 +35,40 @@ export default function ServiceCard({ service, index = 0 }) {
     >
       <Link
         to={`/services/${service.slug}`}
-        className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover"
+        className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover"
         style={{ background: "var(--surface)", border: "1px solid var(--border)" }}
       >
-        <div className="relative z-10">
-          <div className="flex items-center justify-between">
-            <div className={color.icon}>{icon}</div>
-            <span className={`badge ${color.badge}`}>{service.code}</span>
+        {/* Service thumbnail image */}
+        {service.image && (
+          <div className="relative h-40 w-full overflow-hidden">
+            <img
+              src={service.image}
+              alt={service.name}
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(to top, var(--surface) 0%, transparent 60%)" }} />
+            <span className={`badge ${color.badge} absolute top-3 right-3`}>{service.code}</span>
           </div>
-          <h3 className="mt-4 text-base font-bold leading-snug transition-colors duration-200 group-hover:text-accent" style={{ color: "var(--text)" }}>
+        )}
+
+        <div className="relative z-10 p-5 pt-0">
+          <div className="flex items-center gap-3">
+            <div className={color.icon}>{icon}</div>
+            {!service.image && <span className={`badge ${color.badge}`}>{service.code}</span>}
+          </div>
+          <h3 className="mt-3 text-base font-bold leading-snug transition-colors duration-200 group-hover:text-accent" style={{ color: "var(--text)" }}>
             {service.name}
           </h3>
-          <p className="mt-2.5 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
+          <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
             {service.short}
           </p>
         </div>
-        <div className="relative z-10 mt-6 flex items-center gap-2 text-xs font-semibold" style={{ color: "var(--accent)" }}>
-          <span>Learn more</span>
-          <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+        <div className="relative z-10 mt-auto px-5 pb-5">
+          <div className="flex items-center gap-2 text-xs font-semibold" style={{ color: "var(--accent)" }}>
+            <span>Learn more</span>
+            <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+          </div>
         </div>
       </Link>
     </motion.div>

@@ -22,6 +22,13 @@ const colorConfig = {
   gold: { bg: "#fffbeb", border: "rgba(217,119,6,0.12)" },
 };
 
+// Free-to-use images (Unsplash License)
+const IMAGES = {
+  trust: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=80", // business handshake
+  teamWork: "https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&w=900&q=80", // collaboration
+  support: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=80", // person working on laptop
+};
+
 export default function WhyBmtax() {
   return (
     <>
@@ -44,11 +51,22 @@ export default function WhyBmtax() {
         </Container>
       </section>
 
+      {/* Intro with image */}
       <section className="py-10 sm:py-14" style={{ backgroundColor: "var(--bg)" }}>
-        <Container>
-          <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.55 }} className="max-w-3xl text-base leading-loose" style={{ color: "var(--text-muted)" }}>
+        <Container className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-12">
+          <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.55 }} className="text-base leading-loose" style={{ color: "var(--text-muted)" }}>
             Whether you're an individual, a startup, or a growing business, we provide reliable and cost-effective solutions that save your time, ensure accuracy, and keep you fully compliant with all legal requirements. With a team of experienced professionals and a commitment to quality, BMTAX simplifies complex processes like GST, Income Tax, audits and financial reporting — so you can focus on what you do best: growing your business.
           </motion.p>
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
+            <div className="overflow-hidden rounded-2xl" style={{ boxShadow: "0 12px 30px rgba(0,0,0,0.08)" }}>
+              <img
+                src={IMAGES.teamWork}
+                alt="BMTAX team collaborating at a desk"
+                className="h-56 w-full object-cover sm:h-64"
+                loading="lazy"
+              />
+            </div>
+          </motion.div>
         </Container>
       </section>
 
@@ -64,6 +82,27 @@ export default function WhyBmtax() {
           </div>
         </Container>
       </div>
+
+      {/* Trust image banner */}
+      <section className="relative overflow-hidden" style={{ height: "280px" }}>
+        <img
+          src={IMAGES.trust}
+          alt="Business handshake representing trust and partnership"
+          className="h-full w-full object-cover"
+          loading="lazy"
+        />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(79,70,229,0.7) 0%, rgba(99,102,241,0.4) 50%, transparent 100%)" }} />
+        <Container className="relative z-10 flex h-full items-center">
+          <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="max-w-md text-2xl font-extrabold text-white sm:text-3xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              Your compliance is in safe hands.
+            </h2>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/80">
+              We build lasting partnerships based on transparency, accuracy and timely delivery.
+            </p>
+          </motion.div>
+        </Container>
+      </section>
 
       <section className="py-14 sm:py-16" style={{ backgroundColor: "var(--surface)" }}>
         <Container>
@@ -93,8 +132,23 @@ export default function WhyBmtax() {
             })}
           </div>
 
-          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }} className="mt-12 text-center">
-            <Link to="/contact" className="btn-primary">Talk to BMTAX →</Link>
+          {/* CTA with support image */}
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }}
+            className="mt-12 grid items-center gap-8 rounded-2xl p-6 sm:p-8 lg:grid-cols-[1fr_auto]"
+            style={{ background: "var(--accent-bg)", border: "1px solid rgba(79,70,229,0.12)" }}>
+            <div>
+              <h3 className="text-xl font-bold" style={{ color: "var(--text)" }}>Ready to simplify your compliance?</h3>
+              <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>Talk to our team about GST, ITR, audits or registration — we'll take it from there.</p>
+              <Link to="/contact" className="btn-primary mt-5 inline-flex">Talk to BMTAX →</Link>
+            </div>
+            <div className="hidden overflow-hidden rounded-xl lg:block" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }}>
+              <img
+                src={IMAGES.support}
+                alt="Professional working on a laptop"
+                className="h-40 w-56 object-cover"
+                loading="lazy"
+              />
+            </div>
           </motion.div>
         </Container>
       </section>

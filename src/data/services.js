@@ -1,9 +1,11 @@
+// Free-to-use images (Unsplash License — free for commercial & personal use, no permission needed, no attribution required)
 export const services = [
   {
     slug: "gst-registration",
     code: "GST-01",
     name: "GST Registration",
     short: "Register your business under GST quickly and stay legally compliant.",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80",
     description:
       "We handle end-to-end GST registration for proprietorships, partnerships, LLPs, private limited companies and OPCs — document preparation, ARN tracking and GSTIN issuance — so your business can start invoicing and claiming input tax credit without delay.",
     included: [
@@ -18,6 +20,7 @@ export const services = [
     code: "GST-02",
     name: "GST Return Filing",
     short: "Timely and accurate filing of GST returns to avoid penalties and ensure smooth operations.",
+    image: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=600&q=80",
     description:
       "From monthly GSTR-1 and GSTR-3B to annual returns, our team reconciles your sales and purchase data and files on time, every time, so you avoid late fees, interest and notices from the department.",
     included: [
@@ -32,6 +35,7 @@ export const services = [
     code: "AUD-01",
     name: "Tax Audit",
     short: "Comprehensive tax audits conducted as per the Income Tax Act to ensure compliance and avoid legal issues.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
     description:
       "Our chartered accountants conduct tax audits under Section 44AB of the Income Tax Act, preparing the required forms and reports accurately so your business stays compliant and audit-ready.",
     included: [
@@ -46,6 +50,7 @@ export const services = [
     code: "ITR-01",
     name: "Income Tax Return (ITR) Filing",
     short: "File your personal or business income tax returns accurately and on time.",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80",
     description:
       "Whether you're a salaried individual, a professional or a business owner, we prepare and file the correct ITR form, claim eligible deductions, and keep you compliant with the Income Tax Department.",
     included: [
@@ -60,6 +65,7 @@ export const services = [
     code: "MSME-01",
     name: "Udyam Registration",
     short: "Register your business as an MSME to avail government benefits and schemes.",
+    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80",
     description:
       "We register your business under Udyam so you can access MSME benefits such as collateral-free loans, subsidies and priority sector lending, along with protection under the MSME Development Act.",
     included: [
@@ -74,6 +80,7 @@ export const services = [
     code: "ITR-02",
     name: "Income Tax Registration",
     short: "Get PAN, TAN and other tax-related registrations with expert assistance.",
+    image: "https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=600&q=80",
     description:
       "We assist individuals and businesses in obtaining PAN, TAN and other statutory tax registrations required to operate legally and deduct or remit tax correctly.",
     included: [
@@ -88,6 +95,7 @@ export const services = [
     code: "FIN-01",
     name: "Balance Sheet Preparation",
     short: "Professional preparation of balance sheets to reflect your company's financial position.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
     description:
       "We prepare accurate, standards-compliant balance sheets that give you and your stakeholders a clear picture of assets, liabilities and equity — ready for filings, loans or audits.",
     included: [
@@ -102,6 +110,7 @@ export const services = [
     code: "FIN-02",
     name: "Profit & Loss Account",
     short: "Detailed P&L statements to analyze business performance and profitability.",
+    image: "https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&w=600&q=80",
     description:
       "We prepare detailed profit and loss statements that break down revenue, cost of goods and expenses, giving you the clarity to track profitability and plan ahead.",
     included: [
@@ -116,6 +125,7 @@ export const services = [
     code: "TDS-01",
     name: "TDS Return Filing",
     short: "Timely filing of TDS returns to ensure compliance with tax deduction regulations and avoid late fees.",
+    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&q=80",
     description:
       "We prepare and file quarterly TDS returns (24Q, 26Q, 27Q), reconcile deductions with Form 26AS, and issue TDS certificates so you stay compliant with deduction and remittance rules.",
     included: [

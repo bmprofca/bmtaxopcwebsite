@@ -29,6 +29,12 @@ const colorConfig = {
   accent: { iconClass: "icon-circle" }, emerald: { iconClass: "icon-circle-emerald" }, gold: { iconClass: "icon-circle-gold" },
 };
 
+// Free-to-use images (Unsplash License)
+const IMAGES = {
+  hero: "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1200&q=80", // phone/communication
+  office: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=900&q=80", // woman at desk / support
+};
+
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
 
@@ -47,7 +53,7 @@ export default function Contact() {
 
       <section className="page-hero">
         <div className="blob animate-blob" style={{ width: 450, height: 450, background: "radial-gradient(circle, #818cf8, transparent 70%)", top: "-100px", right: "5%" }} />
-        <Container className="relative z-10">
+        <Container className="relative z-10 grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="eyebrow">Get In Touch</span>
             <h1 className="mt-2 max-w-2xl text-4xl font-extrabold leading-tight sm:text-5xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text)" }}>
@@ -56,6 +62,17 @@ export default function Contact() {
             <p className="mt-5 max-w-xl text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>
               Reach out for GST, Income Tax, audits, registrations or any compliance question — we usually respond within one business day.
             </p>
+          </motion.div>
+          {/* Hero image */}
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="hidden lg:block">
+            <div className="overflow-hidden rounded-2xl" style={{ boxShadow: "0 16px 40px rgba(79,70,229,0.12)" }}>
+              <img
+                src={IMAGES.hero}
+                alt="Phone representing easy communication with BMTAX"
+                className="h-[280px] w-full object-cover"
+                loading="eager"
+              />
+            </div>
           </motion.div>
         </Container>
       </section>
@@ -82,6 +99,17 @@ export default function Contact() {
             <div className="overflow-hidden rounded-2xl" style={{ border: "1px solid var(--border)" }}>
               <iframe title="BMTAX office location map" src={business.mapEmbed} className="h-56 w-full" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
             </div>
+
+            {/* Office image */}
+            <div className="overflow-hidden rounded-2xl" style={{ boxShadow: "0 8px 24px rgba(0,0,0,0.06)" }}>
+              <img
+                src={IMAGES.office}
+                alt="BMTAX office workspace"
+                className="h-40 w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+
             <div className="rounded-2xl p-4 sm:p-5" style={{ background: "var(--accent-bg)", border: "1px solid rgba(79,70,229,0.15)" }}>
               <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "var(--accent)" }}>Business Hours</p>
               <div className="space-y-1.5 text-sm" style={{ color: "var(--text-muted)" }}>

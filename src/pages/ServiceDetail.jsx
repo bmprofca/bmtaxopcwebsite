@@ -37,7 +37,24 @@ export default function ServiceDetail() {
         </Container>
       </section>
 
-      <section className="py-20" style={{ backgroundColor: "var(--bg)" }}>
+      {/* Service hero image banner */}
+      {service.image && (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }}>
+          <Container className="relative -mt-2 mb-0">
+            <div className="overflow-hidden rounded-2xl" style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.1)" }}>
+              <img
+                src={service.image.replace("w=600", "w=1200")}
+                alt={`${service.name} — professional service`}
+                className="h-48 w-full object-cover sm:h-64 lg:h-72"
+                loading="eager"
+              />
+              <div className="absolute inset-0 rounded-2xl" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.15) 0%, transparent 50%)" }} />
+            </div>
+          </Container>
+        </motion.div>
+      )}
+
+      <section className="py-14 sm:py-16" style={{ backgroundColor: "var(--bg)" }}>
         <Container className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <h2 className="text-xl font-bold mb-5" style={{ color: "var(--text)" }}>Overview</h2>
@@ -80,16 +97,23 @@ export default function ServiceDetail() {
         </Container>
       </section>
 
-      <section className="py-16" style={{ background: "var(--surface-2)", borderTop: "1px solid var(--border)" }}>
+      <section className="py-14 sm:py-16" style={{ background: "var(--surface-2)", borderTop: "1px solid var(--border)" }}>
         <Container>
           <h2 className="mb-8 text-xl font-bold" style={{ color: "var(--text)" }}>Related Services</h2>
           <div className="grid gap-5 sm:grid-cols-3">
             {related.map((s, i) => (
               <motion.div key={s.slug} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.4 }}>
-                <Link to={`/services/${s.slug}`} className="group flex flex-col gap-2 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
-                  <span className="badge badge-accent w-fit">{s.code}</span>
-                  <h3 className="text-sm font-bold transition-colors group-hover:text-accent" style={{ color: "var(--text)" }}>{s.name}</h3>
-                  <span className="text-xs" style={{ color: "var(--accent)" }}>Learn more →</span>
+                <Link to={`/services/${s.slug}`} className="group flex flex-col overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
+                  {s.image && (
+                    <div className="h-32 w-full overflow-hidden">
+                      <img src={s.image} alt={s.name} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                    </div>
+                  )}
+                  <div className="flex flex-col gap-2 p-5">
+                    <span className="badge badge-accent w-fit">{s.code}</span>
+                    <h3 className="text-sm font-bold transition-colors group-hover:text-accent" style={{ color: "var(--text)" }}>{s.name}</h3>
+                    <span className="text-xs" style={{ color: "var(--accent)" }}>Learn more →</span>
+                  </div>
                 </Link>
               </motion.div>
             ))}
